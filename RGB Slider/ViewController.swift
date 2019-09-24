@@ -58,9 +58,9 @@ class ViewController: UIViewController {
     
     private func createToolbar(for textField: UITextField) {
         let toolbar = UIToolbar(frame:CGRect(x: 0,
-                                                   y: 0,
-                                                   width: UIScreen.main.bounds.width,
-                                                   height: 50))
+                                             y: 0,
+                                             width: UIScreen.main.bounds.width,
+                                             height: 50))
         toolbar.barStyle = .default
         
         toolbar.items = [
