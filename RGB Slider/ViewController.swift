@@ -45,7 +45,10 @@ class ViewController: UIViewController {
     }
     
     private func setColorForView() {
-        colorView.backgroundColor = UIColor(red: CGFloat(redSlaider.value), green: CGFloat(greenSlaider.value), blue: CGFloat(blueSlaider.value), alpha: 1)
+        colorView.backgroundColor = UIColor(red: CGFloat(redSlaider.value),
+                                            green: CGFloat(greenSlaider.value),
+                                            blue: CGFloat(blueSlaider.value),
+                                            alpha: 1)
     }
     
     private func changeValuesTextFields() {
