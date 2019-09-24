@@ -28,14 +28,14 @@
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="b8w-Kk-b8s">
                                         <rect key="frame" x="-2" y="0.0" width="174" height="31"/>
-                                        <color key="minimumTrackTintColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="minimumTrackTintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="valueChanget" destination="BYZ-38-t0r" eventType="valueChanged" id="mmz-OX-MyX"/>
                                         </connections>
                                     </slider>
                                     <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="n9i-8a-rVd">
                                         <rect key="frame" x="-2" y="41" width="174" height="31"/>
-                                        <color key="minimumTrackTintColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="minimumTrackTintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="valueChanget" destination="BYZ-38-t0r" eventType="valueChanged" id="n9z-JJ-gR8"/>
                                         </connections>
@@ -139,7 +139,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2CY-t4-AoG" firstAttribute="leading" secondItem="trk-UF-xdB" secondAttribute="trailing" constant="13" id="25W-nb-0sR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="trk-UF-xdB" secondAttribute="bottom" constant="351" id="8nC-Qp-0pD"/>
@@ -161,14 +161,14 @@
                     </view>
                     <connections>
                         <outlet property="blueSlaider" destination="3Q8-08-bda" id="ia2-NP-hUz"/>
+                        <outlet property="blueSliderLabel" destination="mWS-UG-a3M" id="bzX-HX-gVc"/>
                         <outlet property="blueTextField" destination="6h5-GN-Ctv" id="6g2-km-UJP"/>
                         <outlet property="colorView" destination="vO6-Ve-WBK" id="310-xc-tPE"/>
                         <outlet property="greenSlaider" destination="n9i-8a-rVd" id="jsg-ns-IIx"/>
+                        <outlet property="greenSliderLabel" destination="1Or-ps-BQ1" id="2Is-Ld-NYR"/>
                         <outlet property="greenTextField" destination="jq3-yV-egm" id="XxX-2r-i2O"/>
-                        <outlet property="labelBlueForSlider" destination="mWS-UG-a3M" id="bzX-HX-gVc"/>
-                        <outlet property="labelGreenForSlider" destination="1Or-ps-BQ1" id="2Is-Ld-NYR"/>
-                        <outlet property="labelRedForSlider" destination="jV7-eP-pis" id="M2d-B7-uTN"/>
                         <outlet property="redSlaider" destination="b8w-Kk-b8s" id="gS3-zZ-tvq"/>
+                        <outlet property="redSliderLabel" destination="jV7-eP-pis" id="M2d-B7-uTN"/>
                         <outlet property="redTextField" destination="9ky-Nm-u6E" id="hit-Ub-T5n"/>
                     </connections>
                 </viewController>

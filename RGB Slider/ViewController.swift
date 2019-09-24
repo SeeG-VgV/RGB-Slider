@@ -20,9 +20,9 @@ class ViewController: UIViewController {
     @IBOutlet var greenTextField: UITextField!
     @IBOutlet var blueTextField: UITextField!
     
-    @IBOutlet var labelRedForSlider: UILabel!
-    @IBOutlet var labelGreenForSlider: UILabel!
-    @IBOutlet var labelBlueForSlider: UILabel!
+    @IBOutlet var redSliderLabel: UILabel!
+    @IBOutlet var greenSliderLabel: UILabel!
+    @IBOutlet var blueSliderLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,23 +34,27 @@ class ViewController: UIViewController {
         createToolbar(for: greenTextField)
         
         setColorForView()
-        changeValuesLabelAndTextFields()
+        changeValuesTextFields()
+        changeValueLabel()
     }
     
     @IBAction func valueChanget() {
-        changeValuesLabelAndTextFields()
         setColorForView()
+        changeValuesTextFields()
+        changeValueLabel()
     }
     
     private func setColorForView() {
         colorView.backgroundColor = UIColor(red: CGFloat(redSlaider.value), green: CGFloat(greenSlaider.value), blue: CGFloat(blueSlaider.value), alpha: 1)
     }
     
-    private func changeValuesLabelAndTextFields() {
-        labelRedForSlider.text = String(format: "%.2f", redSlaider.value)
-        labelGreenForSlider.text = String(format: "%.2f", greenSlaider.value)
-        labelBlueForSlider.text = String(format: "%.2f", blueSlaider.value)
-        
+    private func changeValuesTextFields() {
+        redSliderLabel.text = String(format: "%.2f", redSlaider.value)
+        greenSliderLabel.text = String(format: "%.2f", greenSlaider.value)
+        blueSliderLabel.text = String(format: "%.2f", blueSlaider.value)
+    }
+    
+    private func changeValueLabel() {
         redTextField.text = String(format: "%.2f", redSlaider.value)
         greenTextField.text = String(format: "%.2f", greenSlaider.value)
         blueTextField.text = String(format: "%.2f", blueSlaider.value)
@@ -87,9 +91,7 @@ extension ViewController: UITextFieldDelegate {
         
         guard let text = Float(textField.text!) else {
             
-            self.redTextField.text = String(format: "%.2f", self.redSlaider.value)
-            self.greenTextField.text = String(format: "%.2f", self.greenSlaider.value)
-            self.blueTextField.text = String(format: "%.2f", self.blueSlaider.value)
+            changeValuesTextFields()
             
             return
         }
@@ -97,13 +99,13 @@ extension ViewController: UITextFieldDelegate {
         switch textField.tag {
         case 0:
             redSlaider.value = text
-            labelRedForSlider.text = String(format: "%.2f", redSlaider.value)
+            redSliderLabel.text = String(format: "%.2f", redSlaider.value)
         case 1:
             greenSlaider.value = text
-            labelGreenForSlider.text = String(format: "%.2f", greenSlaider.value)
+            greenSliderLabel.text = String(format: "%.2f", greenSlaider.value)
         case 2:
             blueSlaider.value = text
-            labelBlueForSlider.text = String(format: "%.2f", blueSlaider.value)
+            blueSliderLabel.text = String(format: "%.2f", blueSlaider.value)
         default:
             break
         }
@@ -119,10 +121,8 @@ extension ViewController: UITextFieldDelegate {
         if newLength > 4 {
             let alert = UIAlertController(title: "Warning", message: "Invalid number of characters per line. Please enter no more than four characters.", preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                self.redTextField.text = String(format: "%.2f", self.redSlaider.value)
-                self.greenTextField.text = String(format: "%.2f", self.greenSlaider.value)
-                self.blueTextField.text = String(format: "%.2f", self.blueSlaider.value)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+                self?.changeValuesTextFields()
             }))
             present(alert, animated: true, completion: nil)
             return false
