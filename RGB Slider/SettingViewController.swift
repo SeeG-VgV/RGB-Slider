@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SettingViewController.swift
 //  RGB Slider
 //
 //  Created by Денис Иванов on 22.09.2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SettingViewController: UIViewController {
 
     @IBOutlet var colorView: UIView!
     
@@ -24,19 +24,33 @@ class ViewController: UIViewController {
     @IBOutlet var greenSliderLabel: UILabel!
     @IBOutlet var blueSliderLabel: UILabel!
     
+    var delegate: SettingsDelegate!
+    var rgbColorValues: [CGFloat]!
+    
+// MARK: - Overridden methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         colorView.layer.cornerRadius = 10
-        
-        createToolbar(redTextField, greenTextField, blueTextField)
+        changeValue(for: redSlaider, greenSlaider, blueSlaider)
         
         setColorForView()
+        
         changeValue(for: redTextField, greenTextField, blueTextField)
         changeValues(for: redSliderLabel, greenSliderLabel, blueSliderLabel)
+        createToolbar(redTextField, greenTextField, blueTextField)
     }
     
-    @IBAction func valueChanget(_ sender: UISlider) {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        rgbColorValues.insert(CGFloat(redSlaider.value), at: 0)
+        rgbColorValues.insert(CGFloat(greenSlaider.value), at: 1)
+        rgbColorValues.insert(CGFloat(blueSlaider.value), at: 2)
+        
+        // Передача значения на MainViewController
+        delegate.pass(to: (colorView.backgroundColor, rgbColorValues))
+    }
+    
+    @IBAction func rgbSlider(_ sender: UISlider) {
         switch sender.tag {
         case 0:
             redSliderLabel.text = string(from: redSlaider)
@@ -91,31 +105,56 @@ class ViewController: UIViewController {
         }
     }
     
+    private func changeValue(for slaiders: UISlider...) {
+        slaiders.forEach { slaider in
+            switch slaider.tag {
+            case 0:
+                slaider.value = Float(rgbColorValues[0])
+            case 1:
+                slaider.value = Float(rgbColorValues[1])
+            case 2:
+                slaider.value = Float(rgbColorValues[2])
+            default:
+                break
+            }
+        }
+    }
+    
     private func string(from slider: UISlider) -> String {
         return String(format: "%.2f", slider.value)
     }
 }
 
-extension ViewController: UITextFieldDelegate {
+// MARK: - UITextFieldDelegate
+
+extension SettingViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        changeValues(for: redSliderLabel, greenSliderLabel, blueSliderLabel)
-        
         guard let text = Float(textField.text!) else {
-            changeValue(for: redTextField, greenTextField, blueTextField)
-            return }
+            let alert = UIAlertController(title: "Warning",
+                                          message: "Invalid data format. Please enter only fractional numbers.",
+                                          preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true) {
+                self.changeValue(for: self.redTextField, self.greenTextField, self.blueTextField)
+            }
+            
+            return
+            
+        }
         
         switch textField.tag {
         case 0:
             redSlaider.value = text
-            redSliderLabel.text = String(format: "%.2f", redSlaider.value)
+            redSliderLabel.text = string(from: redSlaider)
         case 1:
             greenSlaider.value = text
-            greenSliderLabel.text = String(format: "%.2f", greenSlaider.value)
+            greenSliderLabel.text = string(from: greenSlaider)
         case 2:
             blueSlaider.value = text
-            blueSliderLabel.text = String(format: "%.2f", blueSlaider.value)
+            blueSliderLabel.text = string(from: blueSlaider)
         default:
             break
         }
@@ -129,12 +168,12 @@ extension ViewController: UITextFieldDelegate {
         let newLength = text.count + string.count - range.length
         
         if newLength > 4 {
-            let alert = UIAlertController(title: "Warning", message: "Invalid number of characters per line. Please enter no more than four characters.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Warning",
+                                          message: "Invalid number of characters per line. Please enter no more than four characters.",
+                                          preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                self.changeValue(for: self.redTextField, self.greenTextField, self.blueTextField)
-            }))
-            present(alert, animated: true, completion: nil)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true) { self.changeValue(for: self.redTextField, self.greenTextField, self.blueTextField) }
             return false
         }
         
@@ -159,7 +198,7 @@ extension ViewController: UITextFieldDelegate {
         
      toolbar.sizeToFit()
      
-     for textField in textFields {
+     textFields.forEach { textField in
          textField.inputAccessoryView = toolbar
      }
      

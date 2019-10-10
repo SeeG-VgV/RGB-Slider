@@ -11,17 +11,21 @@
 		6C07EF5A2334177300BD18E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C07EF582334177300BD18E4 /* Main.storyboard */; };
 		6C07EF5C2334177700BD18E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C07EF5B2334177700BD18E4 /* Assets.xcassets */; };
 		6C07EF5F2334177700BD18E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C07EF5D2334177700BD18E4 /* LaunchScreen.storyboard */; };
-		6C10DA5823380AA00094F2F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C10DA5723380AA00094F2F2 /* ViewController.swift */; };
+		6C10DA5823380AA00094F2F2 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C10DA5723380AA00094F2F2 /* SettingViewController.swift */; };
+		6C35C453234EC3E000356F9D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35C452234EC3E000356F9D /* MainViewController.swift */; };
+		6C35C455234EC44A00356F9D /* SettingsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C35C454234EC44A00356F9D /* SettingsDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6C07EF512334177300BD18E4 /* RGB Slider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RGB Slider.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C07EF512334177300BD18E4 /* RGB Slider version two.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RGB Slider version two.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C07EF542334177300BD18E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C07EF592334177300BD18E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6C07EF5B2334177700BD18E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C07EF5E2334177700BD18E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C07EF602334177700BD18E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C10DA5723380AA00094F2F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6C10DA5723380AA00094F2F2 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		6C35C452234EC3E000356F9D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		6C35C454234EC44A00356F9D /* SettingsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +50,7 @@
 		6C07EF522334177300BD18E4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6C07EF512334177300BD18E4 /* RGB Slider.app */,
+				6C07EF512334177300BD18E4 /* RGB Slider version two.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -55,7 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				6C07EF542334177300BD18E4 /* AppDelegate.swift */,
-				6C10DA5723380AA00094F2F2 /* ViewController.swift */,
+				6C35C452234EC3E000356F9D /* MainViewController.swift */,
+				6C10DA5723380AA00094F2F2 /* SettingViewController.swift */,
+				6C35C454234EC44A00356F9D /* SettingsDelegate.swift */,
 				6C07EF582334177300BD18E4 /* Main.storyboard */,
 				6C07EF5B2334177700BD18E4 /* Assets.xcassets */,
 				6C07EF5D2334177700BD18E4 /* LaunchScreen.storyboard */,
@@ -67,9 +73,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6C07EF502334177300BD18E4 /* RGB Slider */ = {
+		6C07EF502334177300BD18E4 /* RGB Slider version two */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C07EF632334177700BD18E4 /* Build configuration list for PBXNativeTarget "RGB Slider" */;
+			buildConfigurationList = 6C07EF632334177700BD18E4 /* Build configuration list for PBXNativeTarget "RGB Slider version two" */;
 			buildPhases = (
 				6C07EF4D2334177300BD18E4 /* Sources */,
 				6C07EF4E2334177300BD18E4 /* Frameworks */,
@@ -79,9 +85,9 @@
 			);
 			dependencies = (
 			);
-			name = "RGB Slider";
+			name = "RGB Slider version two";
 			productName = "RGB Slider";
-			productReference = 6C07EF512334177300BD18E4 /* RGB Slider.app */;
+			productReference = 6C07EF512334177300BD18E4 /* RGB Slider version two.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +105,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6C07EF4C2334177300BD18E4 /* Build configuration list for PBXProject "RGB Slider" */;
+			buildConfigurationList = 6C07EF4C2334177300BD18E4 /* Build configuration list for PBXProject "RGB Slider version two" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,7 +118,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6C07EF502334177300BD18E4 /* RGB Slider */,
+				6C07EF502334177300BD18E4 /* RGB Slider version two */,
 			);
 		};
 /* End PBXProject section */
@@ -135,8 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C10DA5823380AA00094F2F2 /* ViewController.swift in Sources */,
+				6C10DA5823380AA00094F2F2 /* SettingViewController.swift in Sources */,
+				6C35C455234EC44A00356F9D /* SettingsDelegate.swift in Sources */,
 				6C07EF552334177300BD18E4 /* AppDelegate.swift in Sources */,
+				6C35C453234EC3E000356F9D /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +325,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6C07EF4C2334177300BD18E4 /* Build configuration list for PBXProject "RGB Slider" */ = {
+		6C07EF4C2334177300BD18E4 /* Build configuration list for PBXProject "RGB Slider version two" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C07EF612334177700BD18E4 /* Debug */,
@@ -326,7 +334,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C07EF632334177700BD18E4 /* Build configuration list for PBXNativeTarget "RGB Slider" */ = {
+		6C07EF632334177700BD18E4 /* Build configuration list for PBXNativeTarget "RGB Slider version two" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C07EF642334177700BD18E4 /* Debug */,
