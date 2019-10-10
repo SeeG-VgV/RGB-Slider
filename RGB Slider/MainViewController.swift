@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
         rgbValues = view.backgroundColor?.cgColor.components
     }
     
+    
 
     // MARK: - Navigation
 
@@ -31,7 +32,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: SettingsDelegate {
     func pass(to tuple: (UIColor?, [CGFloat]?)) {
-        view.backgroundColor = to tuple.0
-        rgbValues = to tuple.1
+        view.backgroundColor = tuple.0
+        rgbValues = tuple.1
     }
 }
